@@ -1,0 +1,334 @@
+body {
+    overflow-x: hidden;
+    margin: 0;
+    background-color: #bde0fe;
+    font-family: "Roboto", sans-serif;
+}
+
+h1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 0;
+    font-family: "Bungee Spice", serif;
+    font-size: 50px;
+    font-stretch: expanded;
+    /* text-wrap: nowrap; */
+}
+
+
+/* SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+/* ::-webkit-scrollbar-track {} */
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.20);
+    border-radius: 10px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+#titles {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: flex-start;
+    height: 20vh;
+    min-height: 20vh;
+}
+
+button {
+    width: 20vw;
+    min-width: 55px;
+    max-width: 100px;
+    height: 35px;
+    text-align: center;
+    border-radius: 25px;
+    font-family: "Roboto", sans-serif;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+button:hover {
+    box-shadow: 0 2px 5px #7788bb;
+    transform: translateY(-2px);
+}
+
+
+/* ============== Text and Menu ============= */
+#menu {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+/* Full color animation */
+.allCircles {
+    z-index: -1;
+    pointer-events: none;
+    opacity: 50%;
+}
+
+.circleBlue {
+    position: absolute;
+    top: 12%;
+    left: calc(50% - 150px);
+    width: 300px;
+    height: 300px;
+    rotate: 45deg;
+    animation: colorRotation 6s infinite;
+}
+
+.circleBlue::before {
+    position: absolute;
+    content: "";
+    top: 1em;
+    left: 1em;
+    width: 3em;
+    height: 3em;
+    background-color: blue;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.circleRed {
+    position: absolute;
+    top: 12%;
+    left: calc(50% - 150px);
+    width: 300px;
+    height: 300px;
+    rotate: 45deg;
+    animation: colorRotation 6s infinite;
+    animation-delay: 0.75s;
+}
+
+.circleRed::before {
+    position: absolute;
+    content: "";
+    top: 1em;
+    left: 1em;
+    width: 3em;
+    height: 3em;
+    background-color: red;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.circleYellow {
+    position: absolute;
+    top: 12%;
+    left: calc(50% - 150px);
+    width: 300px;
+    height: 300px;
+    rotate: 45deg;
+    animation: colorRotation 6s infinite;
+    animation-delay: 1.5s;
+}
+
+.circleYellow::before {
+    position: absolute;
+    content: "";
+    top: 1em;
+    left: 1em;
+    width: 3em;
+    height: 3em;
+    background-color: Yellow;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.circleGreen {
+    position: absolute;
+    top: 12%;
+    left: calc(50% - 150px);
+    width: 300px;
+    height: 300px;
+    rotate: 45deg;
+    animation: colorRotation 6s infinite;
+    animation-delay: 2.25s;
+}
+
+.circleGreen::before {
+    position: absolute;
+    content: "";
+    top: 1em;
+    left: 1em;
+    width: 3em;
+    height: 3em;
+    background-color: Green;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.circleIndigo {
+    position: absolute;
+    top: 12%;
+    left: calc(50% - 150px);
+    width: 300px;
+    height: 300px;
+    rotate: 45deg;
+    animation: colorRotation 6s infinite;
+    animation-delay: 3s;
+}
+
+.circleIndigo::before {
+    position: absolute;
+    content: "";
+    top: 1em;
+    left: 1em;
+    width: 3em;
+    height: 3em;
+    background-color: Indigo;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.circleCyan {
+    position: absolute;
+    top: 12%;
+    left: calc(50% - 150px);
+    width: 300px;
+    height: 300px;
+    rotate: 45deg;
+    animation: colorRotation 6s infinite;
+    animation-delay: 3.75s;
+}
+
+.circleCyan::before {
+    position: absolute;
+    content: "";
+    top: 1em;
+    left: 1em;
+    width: 3em;
+    height: 3em;
+    background-color: Cyan;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.circleOrange {
+    position: absolute;
+    top: 12%;
+    left: calc(50% - 150px);
+    width: 300px;
+    height: 300px;
+    rotate: 45deg;
+    animation: colorRotation 6s infinite;
+    animation-delay: 4.5s;
+}
+
+.circleOrange::before {
+    position: absolute;
+    content: "";
+    top: 1em;
+    left: 1em;
+    width: 3em;
+    height: 3em;
+    background-color: Orange;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.circleBlack {
+    position: absolute;
+    top: 12%;
+    left: calc(50% - 150px);
+    width: 300px;
+    height: 300px;
+    rotate: 45deg;
+    animation: colorRotation 6s infinite;
+    animation-delay: 5.25s;
+}
+
+.circleBlack::before {
+    position: absolute;
+    content: "";
+    top: 1em;
+    left: 1em;
+    width: 3em;
+    height: 3em;
+    background-color: Black;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+@keyframes colorRotation {
+    to {
+        rotate: 405deg;
+    }
+}
+
+/* =============== GAME Container ========= */
+#gameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 8vh 0;
+}
+
+/* ============= Color divs ============ */
+#colorContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 4vw;
+    padding: 0 0 2vh 0;
+}
+
+.colorDiv {
+    display: flex;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    border-radius: 50%;
+    transition: background-color linear 70ms;
+    box-shadow: 2px 2px 3px black;
+}
+
+.colorHover:hover {
+    box-shadow: inset 1px 1px 2px black;
+}
+
+/* ============ History logs ========== */
+#historyContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2vh;
+    padding: 0 0 2vh 0;
+}
+
+#historyContainer div {
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+}
+
+#historyContainer p {
+    align-self: center;
+    text-align: center;
+    width: 100px;
+    min-width: 85px;
+    text-wrap: wrap;
+    margin: 0;
+}
+
+/* ============ Utilities ============ */
+
+.hidden {
+    visibility: hidden;
+    display: none !important;
+    opacity: 0;
+}
