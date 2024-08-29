@@ -31,6 +31,10 @@ btnStart.addEventListener("click", (e) => {
     menuColors.classList.add("hidden");
 
     secretCode = secretCodeArr();
+    // secretCode = ["blue", "green", "black", "black"] // Original bug
+    // secretCode = ["black", "black", "green", "blue"]
+    // secretCode = ["black", "cyan", "cyan", "black"]
+
     attempts = 0;
 
     randomUserColorCode();
@@ -70,13 +74,6 @@ btnReset.addEventListener("click", (e) => {
 
     titles.removeChild(titles.lastChild)
 })
-
-// ==== Game Start
-function gameStart() {
-
-    let secretCode = secretCodeArr()
-}
-
 
 // ==== Define a random color code
 function secretCodeArr() {
@@ -159,30 +156,36 @@ function getHintColor() {
     let rightColor = 0;
     let misplacedColor = 0;
 
-    for (let i = 0; i < userColorCode.length; i++) {
-        if (secretCode[i] === userColorCode[i]) {
+    for (const [i, currentColor] of userColorCode.entries()) {
+        if (currentColor == secretCode[i]) {
             rightColor++;
-
-        } else {
-            if (secretCode.includes(userColorCode[i])) {
-                misplacedColor++;
-
-                let allMatchedColor = [];
-                let tempIndex = secretCode.indexOf(userColorCode[i]);
-
-                while (tempIndex !== -1) {
-                    allMatchedColor.push(tempIndex);
-                    tempIndex = secretCode.indexOf(userColorCode[i], tempIndex + 1);
-                }
-                for (let j = 0; j < allMatchedColor.length; j++) {
-                    if (userColorCode[allMatchedColor[j]] === secretCode[allMatchedColor[j]]) {
-                        misplacedColor--
-                    }
-                }
-
-            }
+            continue;
         }
+
+        // si currentColor est présent plus tard et que index de plus tard est pas la bonne réponse : MISSPLACED
+        const nextIndex = secretCode.indexOf(currentColor, i)
+        const followNext = secretCode.indexOf(currentColor, i + 1)
+        if (nextIndex !== -1
+            && ((secretCode[nextIndex] !== userColorCode[nextIndex])
+                || secretCode[followNext] !== userColorCode[followNext])
+        ) {
+            misplacedColor++
+            continue;
+        }
+
+        // si current Color est présent AVANT et que index de AVANT est pas la bonne réponse: MISSPLACED
+        const prevIndex = secretCode.lastIndexOf(currentColor, i);
+        const followPrev = secretCode.lastIndexOf(currentColor, i - 2);
+        if (prevIndex !== -1
+            && ((secretCode[prevIndex] !== userColorCode[prevIndex])
+                || secretCode[followPrev] !== userColorCode[followPrev])
+        ) {
+            misplacedColor++
+            continue;
+        }
+
     }
+
     return [rightColor, misplacedColor];
 }
 
